@@ -501,9 +501,9 @@
                                 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
 // E1 PID
-#define DEFAULT_Kp 15.70
-#define DEFAULT_Ki 0.69
-#define DEFAULT_Kd 89.76
+#define DEFAULT_Kp 12.93
+#define DEFAULT_Ki 0.53
+#define DEFAULT_Kd 78.44
 
 #endif // PIDTEMP
 

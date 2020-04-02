@@ -7,7 +7,7 @@ This is a customized firmware build for CTC Dual with the following hardware mod
 - Hotend PID tune
 - Bed PID tune
 - Linear advance K factor tuned
-
+- Hotend parts fan using a 5015 blower
 
 # Marlin 3D Printer Firmware
 
