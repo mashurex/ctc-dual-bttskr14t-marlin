@@ -1,35 +1,13 @@
 # Customized Big Tree Tech SKR v1.4 Turbo Marlin 3D Printer Firmware
 
-This is a customized firmware build for my Ender 3 with the following hardware modifications:
+This is a customized firmware build for CTC Dual with the following hardware modifications:
 
 - BTT SKR v1.4 Turbo control board
-- TH3D EZABL ABL sensor 
-    + Wired to SKR PROBE pins because of trigger issues using Z endstop wiring
-- Custom direct drive extruder modification with pancake stepper motor
-    + Reduces X axis approx 20mm and Z axis by approx 50mm
-- BMG (clone) geared extruder
-- TH3D Dual Z-Axis pulley system
-    + Power supply mounted in an offset position
-- MicroSwiss all metal Hotend
-- Upgraded heater cartridge
-- Hero Me Gen 2 with dual 4010 parts cooling blowers
-- Noctua 4010 hotend exhaust fan
-- Teaching Tech AIO derivative rear component case
-- RPi 3B+ with PoE hat
-- Dual 4010 blowers over the SKR mainboard steppers
-- 4020 intake fan on the RPi side
-- Buck converter for 24v->12v
-- 24v LED light strip
-- Logitech C270 USB webcam mounted on X endstop housing
-- X and Z axis dampers (removed Y damper to make room for AIO)
-- Aluminum X and Y axis tensioners
-
+- Thermocouples (hotend and bed) swapped for thermistors
 - Hotend PID tune
 - Bed PID tune
 - Linear advance K factor tuned
-- Default and max acceleration significantly increased
 
-With this configuration I'm currently printing 'average'/functional prints at 80mm/s with a 0.6mm nozzle (0.8mm line width) and 0.34mm layer height with fantastic results.
 
 # Marlin 3D Printer Firmware
 
