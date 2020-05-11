@@ -10,6 +10,8 @@ This is a customized firmware build for CTC Dual with the following hardware mod
 - Bed PID tune
 - Linear advance K factor tuned
 - Hotend parts fan using a 5015 blower
+- Dual Titan Extruder clones
+- Dual V6 hotend clones
 
 # Why?
 
