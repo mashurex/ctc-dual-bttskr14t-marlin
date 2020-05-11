@@ -2,12 +2,48 @@
 
 This is a customized firmware build for CTC Dual with the following hardware modifications:
 
-- BTT SKR v1.4 Turbo control board
-- Thermocouples (hotend and bed) swapped for thermistors
+- Big Tree Tech SKR v1.4 Turbo control board
+- Big Tree Tech 2.4" TFT Control Screen
+- 5x A4988 stepper drivers
+- 3x NTC 3950 100K Ohm thermistors (to replace thermocouples for hotends and bed)
 - Hotend PID tune
 - Bed PID tune
 - Linear advance K factor tuned
 - Hotend parts fan using a 5015 blower
+
+# Why?
+
+The Mightyboard on my printer had a component failure. Fixing it myself didn't work, replacement boards are expensive compared to RAMPS, Melzi, etc. boards, and I'm much more familiar with Marlin firmware compaired to Sailfish. Experience with 24v 
+
+# Mightyboard Replacement Procedures
+
+The CTC Dual/Mightyboard are 24v systems, so the SKR 1.4 board was a natural fit because it supports 24v out of the box. Also, I had recent experience with it from my previous Creality Ender 3 modifications.
+
+## Limit Switches
+
+The original limit switches used a four wire connection to the control board, but the SKR only supports a 3 wire connection. The wiring is documented in the [image below](images/LimitSwitchWiring.png)
+
+<a href="images/LimitSwitchWiring.png"><img width="350" src="images/LimitSwitchWiring.png" alt="Limit switching wiring image"></a>
+
+## Heated Bed Wiring
+
+Remove all but the red and black wires from the bed connector. Those two wires will go to the heated bed terminal block on the control board.
+
+## Thermocouples
+
+The thermocouples were replaced with standard NTC 3950 100K Ohm thermistors. Thermocouples can be reused but you will need an adapter/amplifier circuit for them to work with the SKR board. 
+
+I carefully crimped the hotend thermistors into ring terminals and mounted them like thermocouples would be. For the heatedbed, I used kapton tape to attach the thermistor next to where the original bed temp sensor is located. 
+
+## Steppers
+
+The steppers need their connectors changed, to maintain the same order the pins map the following way:
+
+## LCD and Controls
+
+I didn't bother trying to reuse the original, I'm sure it could be possible but I wound up using the BTT 2.4" TFT control screen. There are many control screens that can be used with the SKR board, this particular one was small, cheap, and available immediately.
+
+<a href="images/MotorWiring.png"><img src="images/MotorWiring.png" alt="Stepper wiring image"></a>
 
 # Marlin 3D Printer Firmware
 
@@ -33,29 +69,6 @@ To build Marlin 2.0 you'll need [Arduino IDE 1.8.8 or newer](https://www.arduino
 
 - [Installing Marlin (Arduino)](http://marlinfw.org/docs/basics/install_arduino.html)
 - [Installing Marlin (VSCode)](http://marlinfw.org/docs/basics/install_platformio_vscode.html).
-
-### Supported Platforms
-
-| Platform                                                                                                                                                                                                  | MCU            | Example Boards                                  |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------------------------------------------- |
-| [Arduino AVR](https://www.arduino.cc/)                                                                                                                                                                    | ATmega         | RAMPS, Melzi, RAMBo                             |
-| [Teensy++ 2.0](http://www.microchip.com/wwwproducts/en/AT90USB1286)                                                                                                                                       | AT90USB1286    | Printrboard                                     |
-| [Arduino Due](https://www.arduino.cc/en/Guide/ArduinoDue)                                                                                                                                                 | SAM3X8E        | RAMPS-FD, RADDS, RAMPS4DUE                      |
-| [LPC1768](http://www.nxp.com/products/microcontrollers-and-processors/arm-based-processors-and-mcus/lpc-cortex-m-mcus/lpc1700-cortex-m3/512kb-flash-64kb-sram-ethernet-usb-lqfp100-package:LPC1768FBD100) | ARM® Cortex-M3 | MKS SBASE, Re-ARM, Selena Compact               |
-| [LPC1769](https://www.nxp.com/products/processors-and-microcontrollers/arm-microcontrollers/general-purpose-mcus/lpc1700-cortex-m3/512kb-flash-64kb-sram-ethernet-usb-lqfp100-package:LPC1769FBD100)      | ARM® Cortex-M3 | Smoothieboard, Azteeg X5 mini, TH3D EZBoard     |
-| [STM32F103](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html)                                                                                                                        | ARM® Cortex-M3 | Malyan M200, GTM32 Pro, MKS Robin, BTT SKR Mini |
-| [STM32F401](https://www.st.com/en/microcontrollers-microprocessors/stm32f401.html)                                                                                                                        | ARM® Cortex-M4 | ARMED, Rumba32, SKR Pro, Lerdge, FYSETC S6      |
-| [STM32F7x6](https://www.st.com/en/microcontrollers-microprocessors/stm32f7x6.html)                                                                                                                        | ARM® Cortex-M7 | The Borg, RemRam V1                             |
-| [SAMD51P20A](https://www.adafruit.com/product/4064)                                                                                                                                                       | ARM® Cortex-M4 | Adafruit Grand Central M4                       |
-| [Teensy 3.5](https://www.pjrc.com/store/teensy35.html)                                                                                                                                                    | ARM® Cortex-M4 |
-| [Teensy 3.6](https://www.pjrc.com/store/teensy36.html)                                                                                                                                                    | ARM® Cortex-M4 |
-
-## Submitting Changes
-
-- Submit **Bug Fixes** as Pull Requests to the ([bugfix-2.0.x](https://github.com/MarlinFirmware/Marlin/tree/bugfix-2.0.x)) branch.
-- Submit **New Features** to the ([dev-2.1.x](https://github.com/MarlinFirmware/Marlin/tree/dev-2.1.x)) branch.
-- Follow the [Coding Standards](http://marlinfw.org/docs/development/coding_standards.html) to gain points with the maintainers.
-- Please submit your questions and concerns to the [Issue Queue](https://github.com/MarlinFirmware/Marlin/issues).
 
 ## Marlin Support
 

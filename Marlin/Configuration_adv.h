@@ -149,12 +149,12 @@
  * THERMAL_PROTECTION_HYSTERESIS and/or THERMAL_PROTECTION_PERIOD
  */
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
-#define THERMAL_PROTECTION_PERIOD 60    // Seconds
-#define THERMAL_PROTECTION_HYSTERESIS 4 // Degrees Celsius
+#define THERMAL_PROTECTION_PERIOD 120   // Seconds
+#define THERMAL_PROTECTION_HYSTERESIS 6 // Degrees Celsius
 
-//#define ADAPTIVE_FAN_SLOWING              // Slow part cooling fan if temperature drops
+#define ADAPTIVE_FAN_SLOWING // Slow part cooling fan if temperature drops
 #if BOTH(ADAPTIVE_FAN_SLOWING, PIDTEMP)
-//#define NO_FAN_SLOWING_IN_PID_TUNING    // Don't slow fan speed during M303
+#define NO_FAN_SLOWING_IN_PID_TUNING // Don't slow fan speed during M303
 #endif
 
 /**
@@ -169,7 +169,7 @@
    * and/or decrease WATCH_TEMP_INCREASE. WATCH_TEMP_INCREASE should not be set
    * below 2.
    */
-#define WATCH_TEMP_PERIOD 90  // Seconds
+#define WATCH_TEMP_PERIOD 120 // Seconds
 #define WATCH_TEMP_INCREASE 2 // Degrees Celsius
 #endif
 
@@ -177,13 +177,13 @@
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
-#define THERMAL_PROTECTION_BED_PERIOD 90    // Seconds
+#define THERMAL_PROTECTION_BED_PERIOD 120   // Seconds
 #define THERMAL_PROTECTION_BED_HYSTERESIS 2 // Degrees Celsius
 
 /**
    * As described above, except for the bed (M140/M190/M303).
    */
-#define WATCH_BED_TEMP_PERIOD 90  // Seconds
+#define WATCH_BED_TEMP_PERIOD 120 // Seconds
 #define WATCH_BED_TEMP_INCREASE 2 // Degrees Celsius
 #endif
 
@@ -367,8 +367,8 @@
  *
  * Define one or both of these to override the default 0-255 range.
  */
-//#define FAN_MIN_PWM 50
-//#define FAN_MAX_PWM 128
+// #define FAN_MIN_PWM 50
+// #define FAN_MAX_PWM 128
 //#define FAN_MIN_PWM 75
 //#define FAN_MAX_PWM 200
 
@@ -1850,7 +1850,7 @@
  */
 #if EXTRUDERS > 1
 // Z raise distance for tool-change, as needed for some extruders
-#define TOOLCHANGE_ZRAISE 5 // (mm)
+#define TOOLCHANGE_ZRAISE 2 // (mm)
 //#define TOOLCHANGE_NO_RETURN   // Never return to the previous position on tool-change
 #if ENABLED(TOOLCHANGE_NO_RETURN)
 //#define EVENT_GCODE_AFTER_TOOLCHANGE "G12X"   // G-code to run after tool-change is complete
@@ -1869,7 +1869,7 @@
    * Position to park head during tool change.
    * Doesn't apply to SWITCHING_TOOLHEAD, DUAL_X_CARRIAGE, or PARKING_EXTRUDER
    */
-#define TOOLCHANGE_PARK
+// #define TOOLCHANGE_PARK
 #if ENABLED(TOOLCHANGE_PARK)
 #define TOOLCHANGE_PARK_XY         \
   {                                \
@@ -1896,7 +1896,7 @@
                                              // This short retract is done immediately, before parking the nozzle.
 #define FILAMENT_CHANGE_UNLOAD_FEEDRATE 10   // (mm/s) Unload filament feedrate. This can be pretty fast.
 #define FILAMENT_CHANGE_UNLOAD_ACCEL 25      // (mm/s^2) Lower acceleration may allow a faster feedrate.
-#define FILAMENT_CHANGE_UNLOAD_LENGTH 100    // (mm) The length of filament for a complete unload.    \
+#define FILAMENT_CHANGE_UNLOAD_LENGTH 200    // (mm) The length of filament for a complete unload.    \
                                              //   For Bowden, the full length of the tube and nozzle. \
                                              //   For direct drive, the full length of the nozzle.    \
                                              //   Set to 0 for manual unloading.
@@ -1905,7 +1905,7 @@
                                              // 0 to disable start loading and skip to fast load only
 #define FILAMENT_CHANGE_FAST_LOAD_FEEDRATE 6 // (mm/s) Load filament feedrate. This can be pretty fast.
 #define FILAMENT_CHANGE_FAST_LOAD_ACCEL 25   // (mm/s^2) Lower acceleration may allow a faster feedrate.
-#define FILAMENT_CHANGE_FAST_LOAD_LENGTH 100 // (mm) Load length of filament, from extruder gear to nozzle. \
+#define FILAMENT_CHANGE_FAST_LOAD_LENGTH 200 // (mm) Load length of filament, from extruder gear to nozzle. \
                                              //   For Bowden, the full length of the tube and nozzle.       \
                                              //   For direct drive, the full length of the nozzle.
 //#define ADVANCED_PAUSE_CONTINUOUS_PURGE       // Purge continuously up to the purge length until interrupted.
