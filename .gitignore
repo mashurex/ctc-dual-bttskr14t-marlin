@@ -186,4 +186,4 @@ cmake-build-*
 __pycache__
 pio-build
 *.zip
-BTT-T*/*
+BTT*/**
