@@ -500,11 +500,17 @@
 #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature \
                                 // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
-// E1 PID
-#define DEFAULT_Kp 22.58
-#define DEFAULT_Ki 2.02
-#define DEFAULT_Kd 62.98
+// E0 PID
+#define DEFAULT_Kp 28.58
+#define DEFAULT_Ki 2.70
+#define DEFAULT_Kd 75.53
 
+// E1 PID
+/**
+#define DEFAULT_Kp 23.30
+#define DEFAULT_Ki 2.17
+#define DEFAULT_Kd 62.49
+**/
 #endif // PIDTEMP
 
 //===========================================================================
@@ -570,7 +576,7 @@
  * Note: For Bowden Extruders make this large enough to allow load/unload.
  */
 #define PREVENT_LENGTHY_EXTRUDE
-#define EXTRUDE_MAXLENGTH 200
+#define EXTRUDE_MAXLENGTH 300
 
 //===========================================================================
 //======================== Thermal Runaway Protection =======================
@@ -675,16 +681,16 @@
  *          TMC5130, TMC5130_STANDALONE, TMC5160, TMC5160_STANDALONE
  * :['A4988', 'A5984', 'DRV8825', 'LV8729', 'L6470', 'L6474', 'POWERSTEP01', 'TB6560', 'TB6600', 'TMC2100', 'TMC2130', 'TMC2130_STANDALONE', 'TMC2160', 'TMC2160_STANDALONE', 'TMC2208', 'TMC2208_STANDALONE', 'TMC2209', 'TMC2209_STANDALONE', 'TMC26X', 'TMC26X_STANDALONE', 'TMC2660', 'TMC2660_STANDALONE', 'TMC5130', 'TMC5130_STANDALONE', 'TMC5160', 'TMC5160_STANDALONE']
  */
-#define X_DRIVER_TYPE A4988
-#define Y_DRIVER_TYPE A4988
-#define Z_DRIVER_TYPE A4988
+#define X_DRIVER_TYPE TMC2208
+#define Y_DRIVER_TYPE TMC2208
+#define Z_DRIVER_TYPE TMC2208
 //#define X2_DRIVER_TYPE A4988
 //#define Y2_DRIVER_TYPE A4988
 //#define Z2_DRIVER_TYPE A4988
 //#define Z3_DRIVER_TYPE A4988
 //#define Z4_DRIVER_TYPE A4988
-#define E0_DRIVER_TYPE A4988
-#define E1_DRIVER_TYPE A4988
+#define E0_DRIVER_TYPE TMC2208
+#define E1_DRIVER_TYPE TMC2208
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
@@ -1125,7 +1131,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 155
+#define Z_MAX_POS 150
 
 /**
  * Software Endstops
@@ -1349,10 +1355,10 @@
 #if ENABLED(LEVEL_BED_CORNERS)
 #define LEVEL_CORNERS_INSET_LFRB \
   {                              \
-    40, 40, 40, 40               \
+    50, 40, 50, 40               \
   }                              // (mm) Left, Front, Right, Back insets
 #define LEVEL_CORNERS_HEIGHT 0.0 // (mm) Z height of nozzle at leveling points
-#define LEVEL_CORNERS_Z_HOP 3.0  // (mm) Z height of nozzle between leveling points
+#define LEVEL_CORNERS_Z_HOP 2.0  // (mm) Z height of nozzle between leveling points
 #define LEVEL_CENTER_TOO         // Move to the center after the last corner
 #endif
 
@@ -1501,12 +1507,12 @@
 #define PREHEAT_1_LABEL "PLA"
 #define PREHEAT_1_TEMP_HOTEND 200
 #define PREHEAT_1_TEMP_BED 60
-#define PREHEAT_1_FAN_SPEED 120 // Value from 0 to 255
+#define PREHEAT_1_FAN_SPEED 255 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL "PETG"
-#define PREHEAT_2_TEMP_HOTEND 243
+#define PREHEAT_2_TEMP_HOTEND 245
 #define PREHEAT_2_TEMP_BED 70
-#define PREHEAT_2_FAN_SPEED 120 // Value from 0 to 255
+#define PREHEAT_2_FAN_SPEED 255 // Value from 0 to 255
 
 /**
  * Nozzle Park
@@ -1782,7 +1788,7 @@
 // If you have a speaker that can produce tones, enable it here.
 // By default Marlin assumes you have a buzzer with a fixed frequency.
 //
-//#define SPEAKER
+#define SPEAKER
 
 //
 // The duration and frequency for the UI feedback sound.
