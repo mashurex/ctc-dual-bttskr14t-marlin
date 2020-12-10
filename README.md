@@ -4,7 +4,7 @@ This is a customized firmware build for CTC Dual with the following hardware mod
 
 - Big Tree Tech SKR v1.4 Turbo control board
 - Big Tree Tech 2.4" TFT Control Screen
-- 5x A4988 stepper drivers
+- 5x TMC2208 stepper drivers
 - 3x NTC 3950 100K Ohm thermistors (to replace thermocouples for hotends and bed)
 - Hotend PID tune
 - Bed PID tune
