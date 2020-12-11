@@ -6,46 +6,48 @@ This is a customized firmware build for CTC Dual with the following hardware mod
 - Big Tree Tech 2.4" TFT Control Screen
 - 5x TMC2208 stepper drivers
 - 3x NTC 3950 100K Ohm thermistors (to replace thermocouples for hotends and bed)
+- Dual Titan Extruder clones
+- Dual V6 hotend clones
+- Noctua 60x25 replacement PSU fan (the PSU is stock)
+- Dual 40x10 Noctua hotend fans
+- Hotend parts fan using a 5015 blower
 - Hotend PID tune
 - Bed PID tune
 - Linear advance K factor tuned
-- Hotend parts fan using a 5015 blower
-- Dual Titan Extruder clones
-- Dual V6 hotend clones
 
-# Why?
+## Why?
 
-The Mightyboard on my printer had a component failure. Fixing it myself didn't work, replacement boards are expensive compared to RAMPS, Melzi, etc. boards, and I'm much more familiar with Marlin firmware compaired to Sailfish. Experience with 24v 
+The Mightyboard on my printer had a component failure. Fixing it myself didn't work, replacement boards are expensive compared to RAMPS, Melzi, etc. boards, and I'm much more familiar with Marlin firmware compaired to Sailfish. Also, the lack of real parts fan control on the motherboard was painful.
 
-# Mightyboard Replacement Procedures
+## Mightyboard Replacement Procedures
 
 The CTC Dual/Mightyboard are 24v systems, so the SKR 1.4 board was a natural fit because it supports 24v out of the box. Also, I had recent experience with it from my previous Creality Ender 3 modifications.
 
-## Limit Switches
+### Limit Switches
 
 The original limit switches used a four wire connection to the control board, but the SKR only supports a 3 wire connection. The wiring is documented in the [image below](images/LimitSwitchWiring.png)
 
 <a href="images/LimitSwitchWiring.png"><img width="350" src="images/LimitSwitchWiring.png" alt="Limit switching wiring image"></a>
 
-## Heated Bed Wiring
+### Heated Bed Wiring
 
 Remove all but the red and black wires from the bed connector. Those two wires will go to the heated bed terminal block on the control board.
 
-## Thermocouples
+### Thermocouples
 
 The thermocouples were replaced with standard NTC 3950 100K Ohm thermistors. Thermocouples can be reused but you will need an adapter/amplifier circuit for them to work with the SKR board. 
 
 I carefully crimped the hotend thermistors into ring terminals and mounted them like thermocouples would be. For the heatedbed, I used kapton tape to attach the thermistor next to where the original bed temp sensor is located. 
 
-## Steppers
+### Steppers
 
-The steppers need their connectors changed, to maintain the same order the pins map the following way:
-
-## LCD and Controls
-
-I didn't bother trying to reuse the original, I'm sure it could be possible but I wound up using the BTT 2.4" TFT control screen. There are many control screens that can be used with the SKR board, this particular one was small, cheap, and available immediately.
+I reused all the original stepper motors, but they need their connectors changed. To maintain the same order the pins map the following way:
 
 <a href="images/MotorWiring.png"><img src="images/MotorWiring.png" alt="Stepper wiring image"></a>
+
+### LCD and Controls
+
+I didn't bother trying to reuse the original, I'm sure it could be possible but I wound up using the BTT 2.4" TFT control screen. There are many control screens that can be used with the SKR board, this particular one was small, cheap, and available immediately.
 
 # Marlin 3D Printer Firmware
 
