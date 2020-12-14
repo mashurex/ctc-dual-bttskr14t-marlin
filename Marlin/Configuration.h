@@ -777,7 +777,7 @@
  */
 #define DEFAULT_MAX_ACCELERATION \
   {                              \
-    9000, 9000, 100, 10000       \
+    9000, 9000, 60, 10000        \
   }
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
